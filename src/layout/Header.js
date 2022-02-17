@@ -33,7 +33,7 @@ const Header=()=>{
                 <Nav className="ms-auto" navbar>
                 {context.user ? (
                     <NavItem>
-                        <NavLink tag={Link} to="/" className="text-white">
+                        <NavLink tag={Link} onClick={()=>{context.setUser(null)}} to="/" className="text-white">
                             Logout
                         </NavLink>
                     </NavItem>
@@ -41,13 +41,13 @@ const Header=()=>{
                     ) :(
                         <React.Fragment>
                         <NavItem>
-                        <NavLink tag={Link} to="/" className="text-white">
+                        <NavLink tag={Link} to="/signup" className="text-white">
                             Signup
                         </NavLink>
                     </NavItem>
 
                     <NavItem>
-                        <NavLink tag={Link} to="/" className="text-white">
+                        <NavLink tag={Link} to="/signin" className="text-white">
                             Signin
                         </NavLink>
                     </NavItem>
