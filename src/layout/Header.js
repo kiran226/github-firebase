@@ -26,28 +26,36 @@ const Header=()=>{
                 <Link to="/" className="text-white">LCO gitfire app</Link>
             </NavbarBrand>
             <NavbarText className="text-white">
-            {}
+             { context.user?.email ? context.user.email :"" }
             </NavbarText>
              <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ms-auto" navbar>
-                    <NavItem>
-                        <NavLink tag={Link} to="/signup" className="text-white">
-                            Signup
-                        </NavLink>
-                    </NavItem>
-
-                    <NavItem>
-                        <NavLink tag={Link} to="/signin" className="text-white">
-                            Signin
-                        </NavLink>
-                    </NavItem>
-
+                {context.user ? (
                     <NavItem>
                         <NavLink tag={Link} to="/" className="text-white">
                             Logout
                         </NavLink>
                     </NavItem>
+
+                    ) :(
+                        <React.Fragment>
+                        <NavItem>
+                        <NavLink tag={Link} to="/" className="text-white">
+                            Signup
+                        </NavLink>
+                    </NavItem>
+
+                    <NavItem>
+                        <NavLink tag={Link} to="/" className="text-white">
+                            Signin
+                        </NavLink>
+                    </NavItem>
+                        </React.Fragment>
+                    ) }
+                    
+
+                    
 
                 </Nav>
             </Collapse>
